@@ -11,7 +11,7 @@ export default {
       store
     }
   },
-  components:{
+  components: {
     AppHeader,
     AppMain
   },
@@ -24,11 +24,23 @@ export default {
           this.store.length = response.data.length
           //this.store.info = response.data.img
         })
+    },
+    testMio() {
+      console.log('funziono');
+      this.selected = event.target.value
+      console.log(this.selected);
+      if (this.selected == 'Breaking Bad') {
+        console.log('qui metto api_url e funziono per i personaggi di breaking bad ');
+        this.callApi(this.store.test2_url)
+      } else {
+        console.log('qui metto api_url e funziono per i personaggi di Better Call Saul ');
+        this.callApi(this.store.test_url)
+      }
     }
   },
   mounted() {
-    this.callApi(this.store.API_URL)
-    console.log(this.store);
+    //this.callApi(this.store.API_URL)
+    //console.log(this.store);
   }
 }
 
@@ -36,8 +48,10 @@ export default {
 
 <template>
 
-  <AppHeader/>
-  <AppMain/>
+  <AppHeader />
+
+  <AppMain @test="testMio" />
+
   <footer>
 
   </footer>

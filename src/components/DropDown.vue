@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-    <div class="container">
+    <!-- <div class="container">
         <div class="dropdown-center">
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
@@ -17,5 +17,5 @@ export default {
                 <li><a class="dropdown-item" href="#">Lorem 3</a></li>
             </ul>
         </div>
-    </div>
+    </div> -->
 </template>
