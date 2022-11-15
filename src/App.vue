@@ -19,28 +19,25 @@ export default {
     callApi(url) {
       axios.get(url)
         .then(response => {
-          console.log(response);
           this.store.characters = response.data
           this.store.length = response.data.length
-          //this.store.info = response.data.img
         })
     },
-    testMio() {
-      console.log('funziono');
+    changeCharacters() {
       this.selected = event.target.value
-      console.log(this.selected);
-      if (this.selected == 'Breaking Bad') {
-        console.log('qui metto api_url e funziono per i personaggi di breaking bad ');
-        this.callApi(this.store.test2_url)
+      if (this.selected == 'Breaking+Bad') {
+        const breakingBad = `${this.store.API_URL}?category=${this.selected}`
+        this.callApi(breakingBad)
+      } else if (this.selected == 'Better+Call+Saul'){
+        const betterCallSoul = `${this.store.API_URL}?category=${this.selected}`
+        this.callApi(betterCallSoul)
       } else {
-        console.log('qui metto api_url e funziono per i personaggi di Better Call Saul ');
-        this.callApi(this.store.test_url)
+        this.callApi(this.store.API_URL)
       }
     }
   },
   mounted() {
-    //this.callApi(this.store.API_URL)
-    //console.log(this.store);
+    this.callApi(this.store.API_URL)
   }
 }
 
@@ -50,7 +47,7 @@ export default {
 
   <AppHeader />
 
-  <AppMain @test="testMio" />
+  <AppMain @test="changeCharacters" />
 
   <footer>
 
