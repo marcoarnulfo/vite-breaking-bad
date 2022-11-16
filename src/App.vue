@@ -24,11 +24,11 @@ export default {
         })
     },
     changeCharacters() {
-      this.selected = event.target.value
-      if (this.selected == 'Breaking+Bad') {
+      this.selected = this.store.selectCategory 
+      if (this.selected == 'Breaking Bad') {
         const breakingBad = `${this.store.API_URL}?category=${this.selected}`
         this.callApi(breakingBad)
-      } else if (this.selected == 'Better+Call+Saul'){
+      } else if (this.selected == 'Better Call Saul'){
         const betterCallSoul = `${this.store.API_URL}?category=${this.selected}`
         this.callApi(betterCallSoul)
       } else {
@@ -53,7 +53,6 @@ export default {
 
   </footer>
 
-  <!-- <p v-for="character in store.characters">{{character.nickname}}</p> -->
 
 </template>
 
