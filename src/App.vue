@@ -1,6 +1,6 @@
 
 <script>
-import axios from 'axios';
+//import axios from 'axios';
 import { store } from './store.js';
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
@@ -15,6 +15,7 @@ export default {
     AppHeader,
     AppMain
   },
+  /*
   methods: {
     callApi(url) {
       axios.get(url)
@@ -36,8 +37,10 @@ export default {
       }
     }
   },
+  */
   mounted() {
-    this.callApi(this.store.API_URL)
+    this.store.callApi(this.store.API_URL)
+    console.log(this.store.selectCategory);
   }
 }
 
@@ -45,9 +48,9 @@ export default {
 
 <template>
 
-  <AppHeader />
+  <AppHeader/>
 
-  <AppMain @test="changeCharacters" />
+  <AppMain @test="store.changeCharacters()" />
 
   <footer>
 
